@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kenny's Portfolio</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="" alt="">
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="intro" id="home">
+            <h1 class="section__title section__title--intro">
+                Hi, I am <strong>Kenny Shao</strong>
+            </h1>
+            <p class="section__subtitle section__subtitle--intro">Upcoming Full Stack Dev</p>
+            <img src="C:\Portfolio\facephoto.png" alt="face photo of Kenny Shao" class="intro__img">
+        </section>
+        
+        <section class="my-services" id="services">
+            <h2 class="section__title section__title--services">What I do</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>UI/UX</h3>
+                    <p>
+                        I am currently create websites using HTML, CSS, and JavaScript, along with React framework compenents.
+                        As a full-stack developer, I constantly learn new frameworks and develop my skills through mini projects such as
+                        a quiz application that I created, which allows the user to answer questions and check results.
+                    </p>
+                </div> 
+
+                <div class="service">
+                    <h3>Cloud AWS</h3>
+                    <p>
+                        
+                    </p>
+                </div> 
+                
+                <div class="service">
+                    <h3>BackEnd</h3>
+                    <p>
+                       I am currently using Java and Python to link websites to database managemenet using relational databases such as 
+                       MySQL and SQL Server. This allows for the management of user data and easier and secure access to information on the web.
+                    </p>
+                </div>
+            </div>
+            
+            <a href="#work" class="btn">Projects</a>
+        </section>
+        
+        <section class="about-me" id="about">
+           <h2 class="section__title section__title--about">Who I am</h2>
+           <p class="section__subtitle section__subtitle--about">Software Intern/Developer</p> 
+           <div class="about-me__body">
+               <p>
+                    I am currently a computer science student at Florida International University, and I enjoy programming with 
+                    new languages such as Python, Java, JavaScript, and many more. I hope to gain technical experience at internships 
+                    across the globe, and I am an extreme enthusiast of Artificial Intelligence/Machine Learning and with the development
+                    of robotics.
+               </p>
+           </div>
+           
+           <img src="C:\Portfolio\facephoto.png" alt="photo of Kenny Shao" class="about-me__img">
+        </section>
+
+        <section class="my-work" id="work">
+            <h2 class="section__title section__title--work">Projects</h2>
+            <p class="section__subtitle section__subtitle--work">My projects</p>
+            
+            <div class="portfolio">
+                <a href="portfolio-item.html" class="portfolio__item">
+                    <img src="" alt="" class="portfolio__img">
+                </a>
+
+                <a href="portfolio-item.html" class="portfolio__item">
+                    <img src="" alt="" class="portfolio__img">
+                </a>
+       
+                <a href="portfolio-item.html" class="portfolio__item">
+                    <img src="" alt="" class="portfolio__img">
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <a href="https://mail.google.com/mail/u/0/#inbox" class="footer__link">KennyShao0919@gmail.com</a>
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/kenny-shao-429363219/">LinkedIn</a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/Kshao09">GitHub</a>
+                </li>
+            </ul>
+        </footer>    
+        <script src="script.js"></script>    
+    </body>
+</html>
