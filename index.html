@@ -1,116 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kenny's Portfolio</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <img src="" alt="">
-            </div>
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
-                </ul>
-            </nav>
-        </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Kenny Shao's AI/ML portfolio as a playable 3D world.">
+  <meta name="theme-color" content="#07111f">
+  <title>Kenny Shao — AI World Portfolio</title>
+  <link rel="icon" href="assets/icons/neural-node.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
-        <section class="intro" id="home">
-            <h1 class="section__title section__title--intro">
-                Hi, I am <strong>Kenny Shao</strong>
-            </h1>
-            <p class="section__subtitle section__subtitle--intro">Upcoming Full Stack Dev</p>
-            <img src="C:\Users\xxlb\Downloads\Images\facephoto.png" alt="face photo of Kenny Shao" class="intro__img">
-        </section>
-        
-        <section class="my-services" id="services">
-            <h2 class="section__title section__title--services">What I do</h2>
-            <div class="services">
-                <div class="service">
-                    <h3>UI/UX</h3>
-                    <p>
-                        I am currently create websites using HTML, CSS, and JavaScript, along with React framework compenents.
-                        As a full-stack developer, I constantly learn new frameworks and develop my skills through mini projects such as
-                        a quiz application that I created, which allows the user to answer questions and check results.
-                    </p>
-                </div> 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main id="game-shell" aria-label="Interactive 3D portfolio">
+    <canvas id="game-canvas" aria-label="3D portfolio world"></canvas>
 
-                <div class="service">
-                    <h3>Cloud AWS</h3>
-                    <p>
-                        
-                    </p>
-                </div> 
-                
-                <div class="service">
-                    <h3>BackEnd</h3>
-                    <p>
-                       I am currently using Java and Python to link websites to database managemenet using relational databases such as 
-                       MySQL and SQL Server. This allows for the management of user data and easier and secure access to information on the web.
-                    </p>
-                </div>
-            </div>
-            
-            <a href="#work" class="btn">Projects</a>
-        </section>
-        
-        <section class="about-me" id="about">
-           <h2 class="section__title section__title--about">Who I am</h2>
-           <p class="section__subtitle section__subtitle--about">Software Intern/Developer</p> 
-           <div class="about-me__body">
-               <p>
-                    I am currently a computer science student at Florida International University, and I enjoy programming with 
-                    new languages such as Python, Java, JavaScript, and many more. I hope to gain technical experience at internships 
-                    across the globe, and I am an extreme enthusiast of Artificial Intelligence/Machine Learning and with the development
-                    of robotics.
-               </p>
-           </div>
-           
-           <img src="C:\Users\xxlb\Downloads\Images\facephoto.png" alt="photo of Kenny Shao" class="about-me__img">
-        </section>
+    <section id="boot-screen" class="boot-screen" aria-labelledby="boot-title">
+      <div class="boot-card">
+        <p class="eyebrow">PORTFOLIO SIMULATION // BUILD 1.0</p>
+        <h1 id="boot-title">Enter Kenny's <span>AI World</span></h1>
+        <p>
+          Control a small explorer, discover five themed environments, collect knowledge nodes,
+          and inspect holograms to learn about Kenny's background, skills, and projects.
+        </p>
+        <div class="boot-actions">
+          <button id="enter-world" class="primary-button" type="button">Initialize world</button>
+          <a class="secondary-button" href="field-guide.html">Read text version</a>
+        </div>
+        <div class="boot-controls" aria-label="Game controls">
+          <span><kbd>WASD</kbd> move</span>
+          <span><kbd>Mouse</kbd> look</span>
+          <span><kbd>E</kbd> interact</span>
+          <span><kbd>Space</kbd> scan</span>
+          <span><kbd>M</kbd> map</span>
+        </div>
+        <p class="boot-note">Click the world again whenever the mouse is released.</p>
+      </div>
+    </section>
 
-        <section class="my-work" id="work">
-            <h2 class="section__title section__title--work">Projects</h2>
-            <p class="section__subtitle section__subtitle--work">My projects</p>
-            
-            <div class="portfolio">
-                <a href="portfolio-item.html" class="portfolio__item">
-                    <img src="" alt="" class="portfolio__img">
-                </a>
+    <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+      <div class="loading-ring" aria-hidden="true"></div>
+      <p>Compiling world geometry…</p>
+    </div>
 
-                <a href="portfolio-item.html" class="portfolio__item">
-                    <img src="" alt="" class="portfolio__img">
-                </a>
-       
-                <a href="portfolio-item.html" class="portfolio__item">
-                    <img src="" alt="" class="portfolio__img">
-                </a>
-            </div>
-        </section>
+    <section id="hud" class="hud" aria-label="Game status" hidden>
+      <div class="hud-card hud-card--profile">
+        <span class="hud-kicker">PLAYER MODEL</span>
+        <strong>Kenny Explorer</strong>
+        <span id="zone-name">Inference Hub</span>
+      </div>
 
-        <footer class="footer">
-            <a href="https://mail.google.com/mail/u/0/#inbox" class="footer__link">KennyShao0919@gmail.com</a>
-            <ul class="social-list">
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/kenny-shao-429363219/">LinkedIn</a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/Kshao09">GitHub</a>
-                </li>
-            </ul>
-        </footer>    
-        <script src="script.js"></script>    
-    </body>
+      <div class="hud-card hud-card--quest">
+        <span class="hud-kicker">CURRENT OBJECTIVE</span>
+        <p id="quest-text">Find the glowing model-card beacon.</p>
+        <div class="progress-row">
+          <span>knowledge nodes</span>
+          <strong><span id="node-count">0</span>/8</strong>
+        </div>
+      </div>
+
+      <div class="crosshair" aria-hidden="true"><span></span></div>
+
+      <div id="interaction-prompt" class="interaction-prompt" aria-live="polite" hidden>
+        <kbd>E</kbd>
+        <span id="interaction-label">Inspect</span>
+      </div>
+
+      <div class="control-strip" aria-label="Quick controls">
+        <span><kbd>WASD</kbd> Move</span>
+        <span><kbd>Shift</kbd> Sprint</span>
+        <span><kbd>Space</kbd> Scan</span>
+        <span><kbd>M</kbd> Map</span>
+      </div>
+
+      <canvas id="mini-map" class="mini-map" width="190" height="190" aria-label="World mini map"></canvas>
+    </section>
+
+    <section id="world-map" class="map-overlay" aria-labelledby="map-title" hidden>
+      <div class="map-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">WORLD TOPOLOGY</p>
+            <h2 id="map-title">Portfolio map</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-map aria-label="Close map">×</button>
+        </div>
+        <div class="map-layout" aria-label="Map of portfolio environments">
+          <div class="map-path map-path--vertical"></div>
+          <div class="map-path map-path--horizontal"></div>
+          <article class="map-zone map-zone--hub"><b>01</b><span>Inference Hub</span><small>About me</small></article>
+          <article class="map-zone map-zone--neural"><b>02</b><span>Neural Forest</span><small>AI / ML interests</small></article>
+          <article class="map-zone map-zone--data"><b>03</b><span>Data Lake</span><small>Backend + databases</small></article>
+          <article class="map-zone map-zone--lab"><b>04</b><span>Project Lab</span><small>Case studies</small></article>
+          <article class="map-zone map-zone--cloud"><b>05</b><span>Cloud Ridge</span><small>Cloud growth</small></article>
+          <article class="map-zone map-zone--portal"><b>06</b><span>Contact Portal</span><small>Connect</small></article>
+        </div>
+        <p class="map-tip">The cyan arrow on the mini map shows your position and facing direction.</p>
+      </div>
+    </section>
+
+    <section id="info-panel" class="info-panel" aria-modal="true" role="dialog" aria-labelledby="panel-title" hidden>
+      <div class="info-panel__backdrop" data-close-panel></div>
+      <article class="info-panel__card">
+        <div class="panel-heading">
+          <div>
+            <p id="panel-kicker" class="eyebrow">DISCOVERED FILE</p>
+            <h2 id="panel-title">Title</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-panel aria-label="Close information panel">×</button>
+        </div>
+        <div id="panel-body" class="info-panel__body"></div>
+        <div id="panel-actions" class="info-panel__actions"></div>
+        <p class="panel-close-hint"><kbd>Esc</kbd> close · click the world to resume</p>
+      </article>
+    </section>
+
+    <div id="toast-stack" class="toast-stack" aria-live="polite" aria-atomic="true"></div>
+
+    <div id="webgl-error" class="error-card" hidden>
+      <h2>3D mode could not start</h2>
+      <p>Your browser may have WebGL disabled. The complete portfolio is still available in the text field guide.</p>
+      <a class="primary-button" href="field-guide.html">Open field guide</a>
+    </div>
+  </main>
+
+  <noscript>
+    <div class="noscript-card">JavaScript is required for the 3D world. <a href="field-guide.html">Open the text portfolio.</a></div>
+  </noscript>
+
+  <script type="module" src="js/main.js"></script>
+</body>
 </html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kenny Shao — Model Card</title>
+        <meta name="description" content="Kenny Shao's portfolio, framed as an ML model card — with two hands-on machine learning mini-games.">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#home" class="logo">
+                <span class="logo__node"></span>
+                kenny_shao.model
+            </a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Model card</a></li>
+                    <li class="nav__item"><a href="#capabilities" class="nav__link">Capabilities</a></li>
+                    <li class="nav__item"><a href="#playground" class="nav__link">Playground</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="intro" id="home">
+            <canvas id="neural-canvas" aria-hidden="true"></canvas>
+            <div class="intro__content">
+                <h1 class="section__title section__title--intro">
+                    Hi, I'm <span class="accent">Kenny Shao</span>
+                </h1>
+                <p class="intro__role mono">
+                    <span class="intro__role-text"></span><span class="cursor">&nbsp;</span>
+                </p>
+                <div class="intro__actions">
+                    <a href="#about" class="btn">Read the model card</a>
+                    <a href="#playground" class="btn btn--ghost">Try the playground</a>
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <span>scroll</span>
+                <span class="scroll-hint__line"></span>
+            </div>
+        </section>
+
+        <section class="model-card reveal" id="about">
+            <p class="eyebrow">About</p>
+            <h2 class="section__title">Model card</h2>
+            <p class="section__subtitle">The short version, documented the way I'd document any model before shipping it.</p>
+
+            <div class="model-card__frame">
+                <div class="model-card__top">
+                    <img src="https://api.dicebear.com/7.x/shapes/svg?seed=kennyshao" alt="" class="model-card__photo">
+                    <div>
+                        <p class="model-card__id">kenny-shao / full-stack-dev</p>
+                        <h3>Computer Science student, Florida International University</h3>
+                    </div>
+                </div>
+                <dl class="model-card__fields">
+                    <div class="model-card__field">
+                        <dt>Architecture</dt>
+                        <dd>Full-stack web development — HTML, CSS, JavaScript and React on the front end; Java and Python on the back end.</dd>
+                    </div>
+                    <div class="model-card__field">
+                        <dt>Training data</dt>
+                        <dd>Coursework and self-directed projects at FIU, plus a steady diet of small builds — a quiz app, a database-backed web app, and this site's own perceptron trainer.</dd>
+                    </div>
+                    <div class="model-card__field">
+                        <dt>Intended use</dt>
+                        <dd>Internships and entry-level roles where I can build real features, work with relational databases, and keep learning AI/ML fundamentals on the job.</dd>
+                    </div>
+                    <div class="model-card__field">
+                        <dt>Areas of interest</dt>
+                        <dd>Artificial intelligence, machine learning, and robotics — I like understanding how systems learn, not just how they run.</dd>
+                    </div>
+                    <div class="model-card__field">
+                        <dt>Known limitations</dt>
+                        <dd>Still training. Accuracy improves noticeably with coffee. Occasionally overfits to a new framework for a weekend.</dd>
+                    </div>
+                    <div class="model-card__field">
+                        <dt>Contact</dt>
+                        <dd><a href="mailto:KennyShao0919@gmail.com">KennyShao0919@gmail.com</a></dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="capabilities" id="capabilities">
+            <p class="eyebrow">Capabilities</p>
+            <h2 class="section__title">Self-reported confidence scores</h2>
+            <p class="section__subtitle">Like any model, these are self-assessed — take the percentages as a vibe, not a benchmark.</p>
+
+            <div class="capabilities__grid">
+                <div class="capability reveal">
+                    <div class="capability__head">
+                        <h3>ui_ux</h3>
+                        <span class="capability__score">92%</span>
+                    </div>
+                    <p>Building interfaces with HTML, CSS, JavaScript and React components — including small projects like an interactive quiz app.</p>
+                    <div class="capability__bar"><div class="capability__fill" data-score="92"></div></div>
+                </div>
+
+                <div class="capability reveal">
+                    <div class="capability__head">
+                        <h3>backend_and_databases</h3>
+                        <span class="capability__score">88%</span>
+                    </div>
+                    <p>Connecting web apps to relational databases with Java and Python — MySQL and SQL Server — for secure, manageable data access.</p>
+                    <div class="capability__bar"><div class="capability__fill" data-score="88"></div></div>
+                </div>
+
+                <div class="capability reveal">
+                    <div class="capability__head">
+                        <h3>cloud_aws</h3>
+                        <span class="capability__score">65%</span>
+                    </div>
+                    <p>Getting comfortable with core AWS services as I move projects from "runs on my machine" to "runs in the cloud."</p>
+                    <div class="capability__bar"><div class="capability__fill" data-score="65"></div></div>
+                </div>
+
+                <div class="capability reveal">
+                    <div class="capability__head">
+                        <h3>ai_ml_fundamentals</h3>
+                        <span class="capability__score">70%</span>
+                    </div>
+                    <p>Actively learning the math and mechanics behind the models I use — the perceptron trainer below is part of that process.</p>
+                    <div class="capability__bar"><div class="capability__fill" data-score="70"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="playground" id="playground">
+            <p class="eyebrow">Playground</p>
+            <h2 class="section__title">Train something yourself</h2>
+            <p class="section__subtitle">Two small, real interactions instead of a screenshot gallery. No backend, no data leaves your browser.</p>
+
+            <div class="playground__games">
+
+                <div class="game-card reveal">
+                    <div class="game-card__head">
+                        <div>
+                            <h3>Perceptron playground</h3>
+                            <p>Click the canvas to drop points for two classes, then watch a linear perceptron learn to separate them, one epoch at a time.</p>
+                        </div>
+                        <div class="game-card__stats">
+                            <span>epoch: <b id="perceptron-epoch">0</b></span>
+                            <span>accuracy: <b id="perceptron-accuracy">0%</b></span>
+                        </div>
+                    </div>
+
+                    <canvas id="perceptron-canvas" width="560" height="360"></canvas>
+
+                    <div class="game-card__controls">
+                        <button id="perceptron-class" class="game-btn">Class: Signal ●</button>
+                        <button id="perceptron-train" class="game-btn game-btn--primary">Train</button>
+                        <button id="perceptron-reset" class="game-btn">Reset</button>
+                    </div>
+                    <p class="game-card__note">amber = signal (+1) · violet = noise (−1). Add a few points of each before training.</p>
+                </div>
+
+                <div class="game-card reveal">
+                    <div class="game-card__head">
+                        <div>
+                            <h3>Weight matching</h3>
+                            <p>A quick memory match using the vocabulary of a training loop — flip two cards at a time to find every pair.</p>
+                        </div>
+                        <div class="game-card__stats">
+                            <span>moves: <b id="memory-moves">0</b></span>
+                        </div>
+                    </div>
+
+                    <div class="memory-grid" id="memory-grid"></div>
+
+                    <div class="game-card__controls">
+                        <button id="memory-reset" class="game-btn game-btn--primary">Shuffle again</button>
+                    </div>
+                    <p class="memory-win" id="memory-win">All pairs matched — converged. 🎉</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="my-work" id="work">
+            <p class="eyebrow">Projects</p>
+            <h2 class="section__title">Inference examples</h2>
+            <p class="section__subtitle">A few things I've shipped. Click through for the write-up.</p>
+
+            <div class="projects__grid">
+                <a href="portfolio-item.html" class="project-card">
+                    <div class="project-card__thumb"><span class="project-card__tag">web app</span></div>
+                    <div class="project-card__body">
+                        <h3>This portfolio</h3>
+                        <p>A model-card-themed site with a live neural background and two playable ML mini-games, built from scratch.</p>
+                        <div class="project-card__stack"><span>HTML</span><span>CSS</span><span>JS</span><span>Canvas</span></div>
+                    </div>
+                </a>
+
+                <a href="portfolio-item.html" class="project-card">
+                    <div class="project-card__thumb"><span class="project-card__tag">quiz app</span></div>
+                    <div class="project-card__body">
+                        <h3>Interactive quiz application</h3>
+                        <p>A quiz app that scores answers in real time and shows results, built to practice component state and UI logic.</p>
+                        <div class="project-card__stack"><span>JavaScript</span><span>React</span></div>
+                    </div>
+                </a>
+
+                <a href="portfolio-item.html" class="project-card">
+                    <div class="project-card__thumb"><span class="project-card__tag">database</span></div>
+                    <div class="project-card__body">
+                        <h3>Database-backed web app</h3>
+                        <p>A web app connected to a relational database for managing and securely accessing user data.</p>
+                        <div class="project-card__stack"><span>Java</span><span>Python</span><span>SQL Server</span></div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="footer__kicker">// end of inference — thanks for scrolling</p>
+            <a href="mailto:KennyShao0919@gmail.com" class="footer__link">KennyShao0919@gmail.com</a>
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/kenny-shao-429363219/">LinkedIn</a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/Kshao09">GitHub</a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

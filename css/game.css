@@ -1,0 +1,429 @@
+/* =========================================================
+   Main game container
+   ========================================================= */
+
+#game-shell {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #06101d;
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+#game-shell.is-paused #game-canvas {
+  filter:
+    saturate(.72)
+    brightness(.72);
+}
+
+
+/* =========================================================
+   Full-screen overlays
+   ========================================================= */
+
+.boot-screen,
+.loading-screen,
+.error-card {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1.25rem;
+}
+
+
+/* =========================================================
+   Opening screen
+   ========================================================= */
+
+.boot-screen {
+  background:
+    radial-gradient(
+      circle at 15% 18%,
+      rgba(95, 247, 223, .14),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 78% 72%,
+      rgba(140, 124, 255, .18),
+      transparent 32rem
+    ),
+    linear-gradient(
+      160deg,
+      rgba(2, 6, 13, .89),
+      rgba(4, 12, 23, .95)
+    );
+
+  transition:
+    opacity .45s ease,
+    visibility .45s ease;
+
+  /*
+   * Allow the opening screen to scroll vertically on short laptop
+   * screens instead of clipping the controls or bottom of the card.
+   */
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  /*
+   * "safe center" allows centering when space is available without
+   * forcing content outside the visible area when the viewport is short.
+   */
+  align-items: safe center;
+}
+
+.boot-screen::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  opacity: .16;
+
+  background-image:
+    linear-gradient(
+      rgba(95, 247, 223, .15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(95, 247, 223, .15) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    44px 44px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 25%,
+      black 75%,
+      transparent
+    );
+}
+
+.boot-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   Opening card
+   ========================================================= */
+
+.boot-card {
+  position: relative;
+
+  width: min(
+    680px,
+    100%
+  );
+
+  padding:
+    clamp(
+      1.6rem,
+      4vw,
+      3.25rem
+    );
+
+  margin-block: 1rem;
+
+  /*
+   * Prevent the grid layout from shrinking the card vertically.
+   */
+  flex: 0 0 auto;
+
+  border:
+    1px solid
+    rgba(144, 220, 255, .2);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 25, 43, .94),
+      rgba(4, 12, 23, .92)
+    );
+
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0
+    rgba(255, 255, 255, .08);
+
+  backdrop-filter:
+    blur(18px);
+}
+
+.boot-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 12px;
+
+  pointer-events: none;
+
+  border:
+    1px solid
+    rgba(95, 247, 223, .09);
+
+  border-radius: 20px;
+}
+
+.boot-card h1 {
+  max-width: 12ch;
+  margin: 0;
+
+  font:
+    800
+    clamp(
+      2.7rem,
+      8vw,
+      5.3rem
+    )
+    /
+    .91
+    var(--font-display);
+
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+
+.boot-card h1 span {
+  color: var(--cyan);
+
+  text-shadow:
+    0 0 32px
+    rgba(95, 247, 223, .28);
+}
+
+.boot-card > p:not(.eyebrow):not(.boot-note) {
+  max-width: 58ch;
+
+  color: var(--muted);
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   Opening actions and controls
+   ========================================================= */
+
+.boot-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: .8rem;
+
+  margin-top: 1.6rem;
+}
+
+.boot-controls {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap:
+    .75rem
+    1.1rem;
+
+  margin-top: 1.8rem;
+
+  color: var(--muted);
+
+  font-size: .78rem;
+}
+
+.boot-controls span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: .4rem;
+}
+
+.boot-note {
+  margin:
+    1rem
+    0
+    0;
+
+  color: #687f92;
+
+  font:
+    .7rem
+    var(--font-mono);
+}
+
+
+/* =========================================================
+   Loading screen
+   ========================================================= */
+
+.loading-screen {
+  z-index: 90;
+
+  gap: 1rem;
+  align-content: center;
+
+  background:
+    var(--bg-deep);
+
+  transition:
+    opacity .35s ease;
+}
+
+.loading-screen.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-screen p {
+  color: var(--muted);
+
+  font:
+    .76rem
+    var(--font-mono);
+
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.loading-ring {
+  width: 54px;
+  height: 54px;
+
+  border:
+    2px solid
+    rgba(95, 247, 223, .16);
+
+  border-top-color:
+    var(--cyan);
+
+  border-radius: 50%;
+
+  animation:
+    loading-spin
+    1s
+    linear
+    infinite;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   Error screen
+   ========================================================= */
+
+.error-card {
+  z-index: 120;
+
+  align-content: center;
+  text-align: center;
+
+  background:
+    rgba(3, 7, 13, .95);
+}
+
+.error-card h2 {
+  margin: 0;
+
+  font-size: 2rem;
+}
+
+.error-card p {
+  max-width: 50ch;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   Short-screen layout
+   ========================================================= */
+
+@media (max-height: 760px) {
+  /*
+   * On shorter screens, start the card near the top rather than trying
+   * to vertically center content that is taller than the viewport.
+   */
+  .boot-screen {
+    place-items: start center;
+  }
+
+  .boot-card {
+    margin-block:
+      .5rem
+      1.5rem;
+
+    padding-block:
+      1.45rem;
+  }
+
+  .boot-card h1 {
+    font-size:
+      clamp(
+        2.45rem,
+        9vh,
+        4.25rem
+      );
+  }
+
+  .boot-card > p:not(.eyebrow):not(.boot-note) {
+    line-height: 1.55;
+  }
+
+  .boot-actions {
+    margin-top: 1.1rem;
+  }
+
+  .boot-controls {
+    margin-top: 1.2rem;
+  }
+}
+
+
+/* =========================================================
+   Reduced-motion support
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior:
+      auto !important;
+
+    animation-duration:
+      .001ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      .001ms !important;
+  }
+}

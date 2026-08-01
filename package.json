@@ -1,0 +1,13 @@
+{
+  "name": "kenny-shao-portfolio",
+  "version": "1.0.0",
+  "description": "Kenny Shao's portfolio site — AI/ML themed, with an interactive perceptron trainer and a memory-match game.",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l 3000",
+    "dev": "serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

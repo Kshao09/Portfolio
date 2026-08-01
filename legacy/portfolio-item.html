@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Model card portfolio — Kenny Shao</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html#home" class="logo">
+                <span class="logo__node"></span>
+                kenny_shao.model
+            </a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#capabilities" class="nav__link">Capabilities</a></li>
+                    <li class="nav__item"><a href="index.html#playground" class="nav__link">Playground</a></li>
+                    <li class="nav__item"><a href="index.html#work" class="nav__link">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="case-hero">
+            <div class="intro__content" style="max-width: 720px; margin: 0 auto; padding: 0 1.5em;">
+                <a href="index.html#work" class="case-back">&larr; back to projects</a>
+                <p class="eyebrow">Project write-up</p>
+                <h1 class="section__title" style="font-size: clamp(2rem, 5vw, 2.75rem);">This portfolio, as a model card</h1>
+                <p style="color: var(--ink-dim); max-width: 56ch; margin: 0.75em auto 0;">
+                    Why I rebuilt my own site around an AI/ML theme, and how the live background and two mini-games actually work.
+                </p>
+                <div class="case-hero__meta">
+                    <span><b>role</b> designer &amp; developer</span>
+                    <span><b>stack</b> html · css · js · canvas</span>
+                    <span><b>status</b> shipped</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="case-body">
+            <div class="case-body__figure">
+                <img src="https://api.dicebear.com/7.x/shapes/svg?seed=perceptron-playground&backgroundColor=0b0e17" alt="Abstract preview of the perceptron playground interface" style="aspect-ratio: 16/9; object-fit: cover; width: 100%;">
+            </div>
+
+            <h2>The idea</h2>
+            <p>
+                I'm a CS student who spends most of my free time reading about machine learning, so I wanted my
+                portfolio to say that without just listing it as a bullet point. Instead of a typical "about /
+                skills / projects" template, the whole site is framed as a model card — the kind of short
+                documentation you'd write before shipping a model — and the projects section is called
+                "inference examples" instead of a plain gallery.
+            </p>
+
+            <h2>The signature: a live perceptron trainer</h2>
+            <p>
+                The centerpiece is a small interactive playground where you can click to place points into two
+                classes and then watch a linear perceptron learn a decision boundary in real time, epoch by
+                epoch. It's a genuinely working (if intentionally simple) implementation: each training step
+                nudges the weights for every misclassified point, redraws the boundary line, and reports live
+                accuracy until the classes are separated or the epoch limit is hit.
+            </p>
+
+            <h2>Ambient neural network background</h2>
+            <p>
+                Behind the hero text, a canvas animation scatters nodes that drift slowly and connect to nearby
+                neighbors, with connections brightening near the cursor to suggest activation. It's decorative,
+                but it's built from the same idea as the trainer below it — small units, connected, responding
+                to input.
+            </p>
+
+            <h2>What I'd add next</h2>
+            <ul>
+                <li>A second, non-linear playground (a tiny 2-layer network) to show what the perceptron can't do.</li>
+                <li>Persisting high scores for the memory-match game across visits.</li>
+                <li>Write-ups for the quiz app and the database-backed project, in the same model-card voice.</li>
+            </ul>
+
+            <a href="index.html#playground" class="btn" style="margin-top: 1em;">Go try the playground</a>
+        </div>
+
+        <footer class="footer">
+            <p class="footer__kicker">// end of inference — thanks for scrolling</p>
+            <a href="mailto:KennyShao0919@gmail.com" class="footer__link">KennyShao0919@gmail.com</a>
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/kenny-shao-429363219/">LinkedIn</a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/Kshao09">GitHub</a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

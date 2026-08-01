@@ -1,0 +1,24 @@
+HTML
+- index.html: 3D game shell, boot screen, HUD, modal, map
+- field-guide.html: accessible text-only portfolio
+
+CSS
+- css/base.css: design tokens and shared elements
+- css/game.css: canvas and startup states
+- css/ui.css: HUD, panels, mini-map, toasts
+- css/responsive.css: responsive adaptations
+
+JAVASCRIPT
+- js/main.js: entry point
+- js/config/content.js: portfolio content and world data
+- js/core/game.js: renderer, input, game loop
+- js/core/player.js: avatar, movement, camera
+- js/core/world.js: environments, props, effects
+- js/core/interactions.js: proximity and collectibles
+- js/core/ui.js: HUD and modal behavior
+
+ASSETS / DOCS
+- assets/icons/neural-node.svg: favicon
+- docs/WORLD_DESIGN.md: zone, prop, and effect map
+- docs/FILE_INVENTORY.txt: this file
+- legacy/: original uploaded files preserved unchanged
